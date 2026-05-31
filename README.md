@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Estia Ménage — Site vitrine
 
-## Getting Started
+Site public d'Estia Ménage (présentation, tarifs, formulaire de contact). Pas d'authentification, pas d'API interne.
 
-First, run the development server:
+## Stack
+
+- **Next.js 16** (App Router, React 19)
+- **TypeScript** strict
+- **Tailwind CSS** + **lucide-react** (UI)
+- **i18n** custom (fr/en/de/es/it/pl/pt/tr)
+
+## Démarrage rapide
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev          # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Architecture
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+src/
+├── app/             Pages publiques (App Router)
+├── components/      Sections (Hero, Features, Pricing, Contact…)
+├── i18n/            Traductions (8 locales)
+└── lib/             Helpers
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Scripts npm
 
-## Learn More
+| Commande | Description |
+|---|---|
+| `npm run dev` | Dev (Turbopack) |
+| `npm run build` | Build production |
+| `npm start` | Lance le build prod |
+| `npm run lint` | ESLint |
 
-To learn more about Next.js, take a look at the following resources:
+## Déploiement
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Compatible Vercel/Netlify directement (Next.js standard). Pas de variables d'environnement sensibles requises.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Repos liés
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- 🛠️ [estia-menage](https://github.com/Electrix67130/estia-menage) — API backend.
+- 📱 [estia-menage-ui](https://github.com/Electrix67130/estia-menage-ui) — app mobile.
+- 🖥️ [estia-menage-dashboard](https://github.com/Electrix67130/estia-menage-dashboard) — admin.
