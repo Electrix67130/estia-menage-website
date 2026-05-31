@@ -1,0 +1,25 @@
+networks:
+  estia_menage_network:
+    external: true
+    name: estia-menage-api_estia_menage_api_network
+
+services:
+  estia-menage-website:
+    container_name: estia-menage-website
+    build:
+      context: .
+      target: development
+    ports:
+      - "${PORT:-3013}:3000"
+    environment:
+      NODE_ENV: development
+      PORT: 3000
+      HOSTNAME: 0.0.0.0
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+      - /usr/src/app/.next
+    stdin_open: true
+    tty: true
+    networks:
+      - estia_menage_network
