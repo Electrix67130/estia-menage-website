@@ -21,10 +21,9 @@ export default function Header() {
     <header className="border-b border-zinc-200 bg-white">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-6 md:py-8">
         <Link href="/" className="flex items-center gap-3">
-          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-600 text-xl font-bold text-white shadow-md shadow-orange-600/20">
-            B
-          </div>
-          <span className="text-2xl font-extrabold tracking-tight text-zinc-900">Estia Menage</span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/logo-estia-rond.svg" alt="Estia Ménage" className="h-20 w-20" />
+          <span className="text-2xl font-extrabold tracking-tight text-zinc-900">Estia Ménage</span>
         </Link>
 
         <nav className="hidden items-center gap-10 md:flex">
