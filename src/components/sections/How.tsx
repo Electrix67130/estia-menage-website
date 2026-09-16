@@ -2,11 +2,7 @@
 
 import { useI18n } from "@/contexts/I18nContext";
 
-const STEPS = [
-  { n: "01", titleKey: "how.step1.title", descKey: "how.step1.desc" },
-  { n: "02", titleKey: "how.step2.title", descKey: "how.step2.desc" },
-  { n: "03", titleKey: "how.step3.title", descKey: "how.step3.desc" },
-];
+const STEPS = ["step1", "step2", "step3"];
 
 export default function How() {
   const { t } = useI18n();
@@ -24,11 +20,11 @@ export default function How() {
           </h2>
         </div>
         <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
-          {STEPS.map((s) => (
-            <div key={s.n}>
-              <div className="text-5xl font-bold text-blue-500">{s.n}</div>
-              <h3 className="mt-4 text-xl font-semibold">{t(s.titleKey)}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-zinc-400">{t(s.descKey)}</p>
+          {STEPS.map((cle, i) => (
+            <div key={cle}>
+              <div className="text-5xl font-bold text-blue-500">{`0${i + 1}`}</div>
+              <h3 className="mt-4 text-xl font-semibold">{t(`how.${cle}.title`)}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-zinc-400">{t(`how.${cle}.desc`)}</p>
             </div>
           ))}
         </div>

@@ -1,0 +1,77 @@
+# Déploiement du site vitrine Estia Clean Connect.
+#
+# Le site est un **export statique** (`output: "export"`) : la CI le construit
+# ici puis envoie le dossier `out/` sur le VPS, où Caddy le sert en fichiers.
+# Aucun Node ni node_modules côté VPS — son disque de 7,9 Go est déjà occupé à
+# 80 % par l'API et le dashboard.
+#
+# Secrets GitHub requis (les mêmes que l'API et le dashboard) :
+#   SSH_HOST, SSH_USER, SSH_PRIVATE_KEY, SSH_PORT (optionnel)
+name: Deploy Website
+
+on:
+  push:
+    tags: ['[0-9]*']    # déploiement déclenché par un tag de version (ex: 1.0.0, sans "v")
+  workflow_dispatch: {} # ou run manuel (déploie master)
+
+# Même verrou que l'API et le dashboard : un seul déploiement VPS à la fois.
+concurrency:
+  group: deploy-vps
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build statique
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npx tsc --noEmit
+      - run: npm run build
+      - name: Archiver l'export
+        run: tar -czf estia-site.tar.gz -C out .
+      - uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: estia-site.tar.gz
+          retention-days: 7
+
+  deploy:
+    name: Envoi sur le VPS
+    needs: build
+    runs-on: ubuntu-latest
+    # Désactivé tant que le VPS n'est pas préparé (cf. DEPLOYMENT.md §5) :
+    # passer la variable de repo DEPLOY_ENABLED=true une fois /srv/estia-site
+    # créé et le bloc Caddy en place.
+    if: ${{ vars.DEPLOY_ENABLED == 'true' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: site
+
+      - name: Préparer la clé SSH
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_PORT: ${{ secrets.SSH_PORT || 22 }}
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -p "$SSH_PORT" "$SSH_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+
+      - name: Copier puis installer
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_PORT: ${{ secrets.SSH_PORT || 22 }}
+        run: |
+          scp -i ~/.ssh/deploy_key -P "$SSH_PORT" estia-site.tar.gz \
+            "$SSH_USER@$SSH_HOST:/tmp/estia-site.tar.gz"
+          ssh -i ~/.ssh/deploy_key -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" \
+            'bash -s' < scripts/install-site.sh

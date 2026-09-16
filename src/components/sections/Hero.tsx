@@ -1,7 +1,33 @@
 "use client";
 
-import { ArrowRight, Building2, Smartphone, Cloud, ShieldCheck } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, CloudOff, ShieldCheck, Smartphone } from "lucide-react";
 import { useI18n } from "@/contexts/I18nContext";
+
+/**
+ * Apercu de planning affiche sous le hero. C'est un visuel statique, pas une
+ * capture : il reste net a toutes les tailles, se traduit avec la page et ne
+ * vieillit pas a chaque refonte de l'interface.
+ */
+const PRESTATIONS = [
+  { heure: "09:00", logement: "Chalet du Hohwald", typeKey: "mock.checkout", ton: "rose" },
+  { heure: "10:30", logement: "Villa Ostara", typeKey: "mock.menage", ton: "bleu" },
+  { heure: "16:00", logement: "Studio Kléber", typeKey: "mock.checkin", ton: "vert" },
+] as const;
+
+// Les memes couleurs de type que dans l'application : menage bleu, check-in
+// vert, check-out rouge.
+const TONS = {
+  bleu: "bg-blue-50 text-blue-700 ring-blue-200",
+  vert: "bg-emerald-50 text-emerald-700 ring-emerald-200",
+  rose: "bg-rose-50 text-rose-700 ring-rose-200",
+} as const;
+
+const BARRES = {
+  bleu: "bg-blue-500",
+  vert: "bg-emerald-500",
+  rose: "bg-rose-500",
+} as const;
 
 export default function Hero() {
   const { t } = useI18n();
@@ -14,7 +40,7 @@ export default function Hero() {
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-blue-500" />
             {t("hero.badge")}
           </span>
-          <h1 className="mt-6 text-5xl font-bold tracking-tight text-zinc-900 sm:text-6xl md:text-7xl">
+          <h1 className="mt-6 text-4xl font-bold tracking-tight text-zinc-900 sm:text-6xl">
             {t("hero.titleA")}
             <br />
             <span className="text-blue-600">{t("hero.titleB")}</span>
@@ -23,19 +49,19 @@ export default function Hero() {
             {t("hero.subtitle")}
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a
+            <Link
               href="/contact"
               className="inline-flex items-center gap-2 rounded-full bg-zinc-900 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-zinc-700"
             >
               {t("hero.ctaDemo")}
               <ArrowRight size={16} />
-            </a>
-            <a
+            </Link>
+            <Link
               href="/features"
               className="inline-flex items-center gap-2 rounded-full border border-zinc-300 bg-white px-6 py-3 text-base font-semibold text-zinc-900 transition-colors hover:bg-zinc-50"
             >
               {t("hero.ctaFeatures")}
-            </a>
+            </Link>
           </div>
           <div className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm text-zinc-500">
             <div className="flex items-center gap-1.5">
@@ -43,8 +69,8 @@ export default function Hero() {
               {t("hero.trustMobile")}
             </div>
             <div className="flex items-center gap-1.5">
-              <Cloud size={14} />
-              {t("hero.trustSync")}
+              <CloudOff size={14} />
+              {t("hero.trustOffline")}
             </div>
             <div className="flex items-center gap-1.5">
               <ShieldCheck size={14} />
@@ -53,15 +79,34 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="mx-auto mt-20 max-w-5xl">
-          <div className="relative overflow-hidden rounded-3xl border border-zinc-200 bg-zinc-50 p-2 shadow-2xl shadow-orange-100/40">
-            <div className="aspect-[16/9] rounded-2xl bg-gradient-to-br from-zinc-100 via-white to-blue-50">
-              <div className="flex h-full items-center justify-center">
-                <div className="text-center">
-                  <Building2 size={64} className="mx-auto text-blue-300" />
-                  <p className="mt-4 text-sm font-medium text-zinc-400">{t("hero.mockup")}</p>
-                </div>
+        <div className="mx-auto mt-20 max-w-3xl">
+          <div className="rounded-3xl border border-zinc-200 bg-white p-2 shadow-2xl shadow-blue-100/60">
+            <div className="rounded-2xl bg-gradient-to-br from-zinc-50 to-blue-50/60 p-5 sm:p-8">
+              <div className="flex items-baseline justify-between">
+                <p className="text-sm font-semibold text-zinc-900">{t("mock.today")}</p>
+                <p className="text-xs text-zinc-500">{t("hero.mockup")}</p>
               </div>
+              <ul className="mt-4 space-y-2.5">
+                {PRESTATIONS.map((p) => (
+                  <li
+                    key={p.heure}
+                    className="flex items-center gap-3 overflow-hidden rounded-xl border border-zinc-200 bg-white p-3 sm:gap-4 sm:p-4"
+                  >
+                    <span className={`h-9 w-1 flex-shrink-0 rounded-full ${BARRES[p.ton]}`} />
+                    <span className="w-12 flex-shrink-0 text-sm font-semibold text-zinc-900">
+                      {p.heure}
+                    </span>
+                    <span className="min-w-0 flex-1 truncate text-sm text-zinc-700">
+                      {p.logement}
+                    </span>
+                    <span
+                      className={`flex-shrink-0 rounded-full px-2.5 py-1 text-xs font-semibold ring-1 ${TONS[p.ton]}`}
+                    >
+                      {t(p.typeKey)}
+                    </span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>

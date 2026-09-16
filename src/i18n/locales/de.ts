@@ -1,121 +1,168 @@
 import type { Dict } from "../types";
 
 const de: Dict = {
+  // Navigation
   "nav.features": "Funktionen",
-  "nav.how": "So funktioniert's",
+  "nav.how": "So funktioniert es",
   "nav.pricing": "Preise",
   "nav.contact": "Kontakt",
+  "nav.support": "Hilfe",
   "nav.signIn": "Anmelden",
-  "nav.start": "Starten",
+  "nav.start": "Konto erstellen",
 
-  "hero.badge": "Bald verfügbar",
-  "hero.titleA": "Baustellenverwaltung,",
-  "hero.titleB": "endlich einfach.",
+  // Hero
+  "hero.badge": "Mobile App + Web-Dashboard",
+  "hero.titleA": "Ihre Reinigungen,",
+  "hero.titleB": "auf den Tag geplant.",
   "hero.subtitle":
-    "Estia Menage vereint Ihr Team in einem einzigen Werkzeug: Fotos, Dokumente, Etappen, Notfälle. Auf der Baustelle wie im Büro.",
+    "Estia Clean Connect vereint Planung, Außenteams und Abrechnung in einem Werkzeug. Jeder Einsatz hat seine Checkliste, seine Fotos mit Zeitstempel und seine Zeiterfassung.",
   "hero.ctaDemo": "Demo anfragen",
   "hero.ctaFeatures": "Funktionen ansehen",
   "hero.trustMobile": "Mobil + Web",
-  "hero.trustSync": "Echtzeit-Synchronisation",
-  "hero.trustEu": "In Europa gehostet",
-  "hero.mockup": "Dashboard-Vorschau",
+  "hero.trustOffline": "Funktioniert offline",
+  "hero.trustEu": "Daten in Frankreich gehostet",
+  "hero.mockup": "Vorschau des Einsatzplans",
 
+  // Funktionen
   "features.kicker": "Funktionen",
-  "features.title": "Alles, was Sie brauchen",
+  "features.title": "Von der Buchung bis zur Rechnung",
   "features.subtitle":
-    "Sechs Module für Baustelle und Büro, die in Echtzeit zusammenarbeiten.",
-  "features.ménages.title": "Alle Baustellen an einem Ort",
-  "features.ménages.desc":
-    "Übersicht, Suche, Geolokalisation, Archiv. Keine Baustelle mehr in E-Mails oder Ordnern vergessen.",
-  "features.photos.title": "Sofortige Baustellenfotos",
-  "features.photos.desc":
-    "Ihre Teams fotografieren mit dem Handy. Alles ist sortiert, datiert, geolokalisiert, vom Büro aus zugänglich.",
-  "features.documents.title": "Dokumente & DICT zentralisiert",
-  "features.documents.desc":
-    "DICT, Pläne, Rechnungen, Verfügungen — ein Ort, geteilt mit den richtigen Personen.",
-  "features.steps.title": "Etappen & Unteretappen",
-  "features.steps.desc":
-    "Jede Baustelle in Etappen aufteilen. Validierung per Klick, Fortschritt in Echtzeit sichtbar.",
-  "features.emergencies.title": "Notfälle & Reklamationen",
-  "features.emergencies.desc":
-    "Die Baustelle meldet ein Problem, Sie sehen es sofort. Push-Benachrichtigung und vollständige Historie.",
-  "features.team.title": "Team & feingranulare Berechtigungen",
+    "Sechs Bausteine für den Tag eines Reinigungsteams — vom Plan am Morgen bis zum Bericht am Abend.",
+  "features.planning.title": "Einsatzplanung",
+  "features.planning.desc":
+    "Reinigung, Check-in, Check-out: Jeder Einsatz ist datiert, typisiert und zugewiesen. Monatsansicht, Tagesansicht Stunde für Stunde und eine Aufenthaltsansicht, die Wechsel auf einen Blick zeigt.",
+  "features.ical.title": "Synchronisierte Kalender",
+  "features.ical.desc":
+    "Binden Sie die iCal-Links von Airbnb, Booking oder Ihrem Channel Manager ein: Jede Buchung erzeugt die Reinigung — und Check-in und Check-out, wenn Sie sie aktivieren.",
+  "features.checklist.title": "Checklisten je Objekt",
+  "features.checklist.desc":
+    "Eine Vorlage je Objekt, bei jedem Einsatz übernommen: Räume, zu beziehende Betten, Verbrauchsmaterial, bereitzustellende Ausstattung, das vom Gast gewählte Paket. Die Reinigungskraft weiß vor dem Betreten, was zu tun ist.",
+  "features.proof.title": "Nachweis des Einsatzes",
+  "features.proof.desc":
+    "Ankunft und Abfahrt mit georeferenziertem Foto erfasst, Vorher/Nachher-Fotos mit Zeitstempel, Kommentare je Schritt. Alles bleibt auch Monate später nachvollziehbar.",
+  "features.team.title": "Team und Berechtigungen",
   "features.team.desc":
-    "Admin, Manager, Arbeiter, Kunde, Netzwerkmanager. Jeder sieht, was er sehen muss, nicht mehr.",
+    "Admin, Reinigungskraft, Aufsicht, Eigentümer: Jeder sieht nur, was ihn betrifft. Zuweisung mit einem Griff, Push-Benachrichtigungen, nachvollziehbare Verschiebungsanfragen.",
+  "features.billing.title": "Abrechnung und Marge",
+  "features.billing.desc":
+    "Kundenpreis und Dienstleisterkosten je Einsatz, nummerierte Rechnungen und Angebote, CSV-Export, Auszahlungsübersicht. Ihre Marge je Kunde und je Dienstleister.",
 
-  "how.kicker": "So funktioniert's",
-  "how.titleA": "Von null bis zur vollständigen Steuerung,",
+  // So funktioniert es
+  "how.kicker": "So funktioniert es",
+  "how.titleA": "Vom Objekt zur Rechnung,",
   "how.titleB": "in drei Schritten.",
-  "how.step1.title": "Organisation erstellen",
+  "how.step1.title": "Objekte beschreiben",
   "how.step1.desc":
-    "Anmeldung in zwei Minuten. Team per E-Mail einladen, wir kümmern uns um den Rest.",
-  "how.step2.title": "Baustellen starten",
+    "Adresse, Zugangscodes, Checkliste, Betten, Verbrauchsmaterial, Ausstattung. Ein einziges Mal: Jeder Einsatz übernimmt diese Einstellungen.",
+  "how.step2.title": "Plan füllen",
   "how.step2.desc":
-    "Baustellen mit oder ohne Vorlage erstellen. Die richtigen Personen mit ihren Berechtigungen zuweisen.",
-  "how.step3.title": "Von überall steuern",
-  "how.step3.desc": "Mobil für die Baustelle, Web für das Büro. Alles in Echtzeit synchronisiert.",
+    "Fügen Sie Ihre iCal-Links ein, damit Buchungen die Einsätze erzeugen, oder legen Sie sie von Hand an. Weisen Sie Ihre Dienstleister zu — sie erhalten die Benachrichtigung.",
+  "how.step3.title": "Von überall verfolgen",
+  "how.step3.desc":
+    "Das Team erfasst Zeiten und fotografiert per Telefon, auch ohne Netz. Sie prüfen die Berichte und rechnen im Dashboard ab.",
 
+  // Für wen
   "for.kicker": "Für wen",
-  "for.title": "Vom Handwerker bis zum Großkonzern",
-  "for.artisan.title": "Für Handwerker",
-  "for.artisan.item1": "Alle Baustellen an einem Ort",
-  "for.artisan.item2": "Vorher/Nachher-Fotos geteilt",
-  "for.artisan.item3": "Vereinfachte Etappenverfolgung",
-  "for.sme.title": "Für Bau-KMU",
-  "for.sme.item1": "Koordination mehrerer Teams",
-  "for.sme.item2": "Verwaltung von Subunternehmern",
-  "for.sme.item3": "Automatisierte rechtliche Archivierung",
-  "for.major.title": "Für Großkonzerne",
-  "for.major.item1": "Berechtigungen pro Rolle und Baustelle",
-  "for.major.item2": "Geteilte Kalender (Google, Outlook, Apple)",
-  "for.major.item3": "API und Integrationen",
+  "for.title": "Mit Teams vor Ort entwickelt",
+  "for.subtitle":
+    "Dasselbe Werkzeug, ob Sie Wochenendwechsel abarbeiten oder ganzjährige Reinigungsverträge betreuen.",
+  "for.conciergerie.title": "Ferienwohnungsverwaltungen",
+  "for.conciergerie.item1": "Buchungen von Airbnb und Booking synchronisiert",
+  "for.conciergerie.item2": "Check-out, Reinigung und Check-in am selben Tag",
+  "for.conciergerie.item3": "Fotobericht mit Zeitstempel für den Eigentümer",
+  "for.cleaning.title": "Reinigungsunternehmen",
+  "for.cleaning.item1": "Wiederkehrende und einmalige Einsätze",
+  "for.cleaning.item2": "Checklisten je Standort und Kunde",
+  "for.cleaning.item3": "Erfasste Stunden, Abrechnung nach Aufwand",
+  "for.owner.title": "Eigentümer und Verwalter",
+  "for.owner.item1": "Mehrere Objekte an einem Ort verfolgt",
+  "for.owner.item2": "Selbstständige Dienstleister fallweise zugewiesen",
+  "for.owner.item3": "Kosten je Objekt und Zeitraum",
 
+  // Preise
   "pricing.kicker": "Preise",
-  "pricing.title": "Einfache, faire Preisgestaltung",
-  "pricing.subtitle": "Sie zahlen nur für aktive Mitglieder Ihrer Organisation.",
-  "pricing.amount": "10€",
-  "pricing.unit": "/ Mitglied / Monat",
-  "pricing.hint":
-    "Zzgl. MwSt., pro Admin, Manager oder Mitarbeiter. Kunde und Netzwerkmanager sind kostenlos.",
-  "pricing.feature.modules": "Alle Module enthalten",
-  "pricing.feature.media": "Unbegrenzte Fotos & Dokumente",
-  "pricing.feature.sync": "Echtzeit-Synchronisation",
-  "pricing.feature.calendars": "Google / Outlook / Apple Kalender",
-  "pricing.feature.support": "E-Mail-Support innerhalb 24h",
-  "pricing.feature.eu": "Europäisches Hosting",
+  "pricing.title": "Ein Angebot passend zu Ihrem Bestand",
+  "pricing.subtitle":
+    "Der Preis richtet sich nach der Zahl der betreuten Objekte und der Größe Ihres Teams. Sagen Sie uns, wie Sie arbeiten — wir machen Ihnen ein Angebot.",
+  "pricing.badge": "Auf Anfrage",
+  "pricing.included": "In allen Angeboten enthalten",
+  "pricing.feature.modules": "Alle Funktionen, keine kostenpflichtigen Module",
+  "pricing.feature.apps": "App für iOS und Android inbegriffen",
+  "pricing.feature.media": "Unbegrenzt Fotos und Dokumente",
+  "pricing.feature.ical": "Unbegrenzt iCal-Kalender",
+  "pricing.feature.support": "E-Mail-Support innerhalb von 48 Arbeitsstunden",
+  "pricing.feature.eu": "Daten in Frankreich gehostet",
   "pricing.cta": "Demo anfragen",
+  "pricing.note":
+    "Ohne Mindestlaufzeit. Zwanzig Minuten Demo genügen, um zu sehen, ob das Werkzeug zu Ihrer Organisation passt.",
 
-  "cta.title": "Bereit, Ihre Baustellen zu vereinfachen?",
+  // Handlungsaufruf
+  "cta.title": "Das Ganze an Ihren eigenen Objekten sehen?",
   "cta.subtitle":
-    "Buchen Sie eine 20-minütige Demo. Wir zeigen Ihnen Estia Menage auf Ihren eigenen Baustellen.",
-  "cta.email": "contact@getestiamenage.fr",
+    "Zwanzig Minuten per Video, mit Ihrem Plan und Ihren Checklisten. Wir sagen Ihnen offen, ob Sie damit Zeit sparen.",
+  "cta.demo": "Demo anfragen",
   "cta.signup": "Konto erstellen",
 
+  // Kontakt
+  "contact.title": "Sprechen wir über Ihre Organisation",
+  "contact.subtitle":
+    "Eine Frage, eine Demo, ein Angebot: Schreiben Sie uns, jemand antwortet innerhalb von 48 Arbeitsstunden.",
+  "contact.email.title": "Schreiben Sie uns",
+  "contact.email.desc": "Antwort innerhalb von 48 Arbeitsstunden.",
+  "contact.signup.title": "Konto erstellen",
+  "contact.signup.desc": "Eröffnen Sie Ihre Organisation und laden Sie Ihr Team ein.",
+  "contact.support.title": "Sie nutzen die App bereits?",
+  "contact.support.desc":
+    "Die Hilfeseite erklärt, wie Sie uns aus der App erreichen und unsere Antworten verfolgen.",
+  "contact.support.link": "Zur Hilfeseite",
+
+  // Hilfe / Support
+  "support.title": "Hilfe und Support",
+  "support.intro":
+    "Eine Frage zur App Estia Clean Connect, ein Fehler zu melden, ein Anliegen zu Ihrem Konto? Schreiben Sie uns — ein Mensch antwortet.",
+  "support.contact.title": "Schreiben Sie uns",
+  "support.contact.desc": "Antwort innerhalb von 48 Arbeitsstunden.",
+  "support.inapp.title": "Aus der App heraus",
+  "support.inapp.desc":
+    "In der mobilen App: Profil, dann „Hilfe und Meldungen“. Im Dashboard: Menü „Meldungen“. Ihre Nachricht bringt ihren technischen Kontext mit, was die Diagnose beschleunigt, und Sie lesen unsere Antworten an derselben Stelle.",
+  "support.account.title": "Konto löschen",
+  "support.account.desc":
+    "Schreiben Sie uns von der E-Mail-Adresse Ihres Kontos: Wir löschen das Konto und die zugehörigen Daten, vorbehaltlich gesetzlicher Aufbewahrungsfristen (Rechnungswesen).",
+  "support.privacy.title": "Datenschutz",
+  "support.privacy.desc":
+    "Unsere Datenschutzerklärung beschreibt die verarbeiteten Daten, ihre Speicherdauer und Ihre Rechte.",
+  "support.privacy.link": "Datenschutzerklärung lesen",
+
+  // Rechtliche Seiten
+  "legal.updated": "Zuletzt aktualisiert: {date}",
+  "legal.frOnly": "Maßgeblich ist die französische Fassung dieses Dokuments.",
+  "legal.privacyTitle": "Datenschutzerklärung",
+  "legal.noticeTitle": "Impressum",
+
+  // Fußzeile
   "footer.tagline":
-    "Das All-in-One-Tool für Ihre Baustellen. Fotos, Dokumente, Etappen, Notfälle, Team — auf der Baustelle, im Büro, überall.",
+    "Das Werkzeug für Reinigungseinsätze: Planung, Checklisten, Einsatznachweis, Abrechnung. Vor Ort wie im Büro.",
   "footer.product": "Produkt",
   "footer.features": "Funktionen",
+  "footer.how": "So funktioniert es",
   "footer.pricing": "Preise",
-  "footer.signup": "Kostenlos starten",
+  "footer.signin": "Anmelden",
   "footer.company": "Unternehmen",
   "footer.contact": "Kontakt",
+  "footer.support": "Hilfe",
+  "footer.legalSection": "Rechtliches",
   "footer.legal": "Impressum",
   "footer.privacy": "Datenschutz",
-  "footer.copyright": "© {year} Estia Menage. Alle Rechte vorbehalten.",
+  "footer.copyright": "© {year} {product} — {company}. Alle Rechte vorbehalten.",
 
+  // Apercu du planning (hero)
+  "mock.today": "Heute",
+  "mock.menage": "Reinigung",
+  "mock.checkin": "Check-in",
+  "mock.checkout": "Check-out",
+
+  // Sprachauswahl
   "lang.label": "Sprache",
-
-  "enterprise.kicker": "Großunternehmen",
-  "enterprise.title": "Maßgeschneiderte Lösung",
-  "enterprise.subtitle": "Ab 50 Plätzen oder spezifischen Anforderungen.",
-  "enterprise.price": "Auf Anfrage",
-  "enterprise.feature.volume": "Unbegrenztes Volumen",
-  "enterprise.feature.sla": "99,9% SLA",
-  "enterprise.feature.support": "Dedizierter Support + Onboarding",
-  "enterprise.feature.sso": "SSO / SAML",
-  "enterprise.feature.integrations": "Maßgeschneiderte Integrationen",
-  "enterprise.feature.hosting": "Dediziertes oder On-Premise-Hosting",
-  "enterprise.cta": "Kontaktieren Sie uns",
 };
 
 export default de;

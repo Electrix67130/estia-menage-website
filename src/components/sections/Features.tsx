@@ -1,15 +1,15 @@
 "use client";
 
-import { Building2, Camera, FileText, ListChecks, Users, AlertTriangle } from "lucide-react";
+import { CalendarDays, CalendarSync, Camera, ListChecks, Receipt, Users } from "lucide-react";
 import { useI18n } from "@/contexts/I18nContext";
 
 const FEATURES = [
-  { icon: Building2, titleKey: "features.ménages.title", descKey: "features.ménages.desc" },
-  { icon: Camera, titleKey: "features.photos.title", descKey: "features.photos.desc" },
-  { icon: FileText, titleKey: "features.documents.title", descKey: "features.documents.desc" },
-  { icon: ListChecks, titleKey: "features.steps.title", descKey: "features.steps.desc" },
-  { icon: AlertTriangle, titleKey: "features.emergencies.title", descKey: "features.emergencies.desc" },
-  { icon: Users, titleKey: "features.team.title", descKey: "features.team.desc" },
+  { icon: CalendarDays, key: "planning" },
+  { icon: CalendarSync, key: "ical" },
+  { icon: ListChecks, key: "checklist" },
+  { icon: Camera, key: "proof" },
+  { icon: Users, key: "team" },
+  { icon: Receipt, key: "billing" },
 ];
 
 export default function Features() {
@@ -31,14 +31,18 @@ export default function Features() {
             const Icon = f.icon;
             return (
               <div
-                key={f.titleKey}
-                className="group rounded-2xl border border-zinc-200 bg-white p-6 transition-all hover:border-blue-300 hover:shadow-lg hover:shadow-orange-100/50"
+                key={f.key}
+                className="group rounded-2xl border border-zinc-200 bg-white p-6 transition-all hover:border-blue-300 hover:shadow-lg hover:shadow-blue-100/50"
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100 text-blue-600 transition-transform group-hover:scale-110">
                   <Icon size={22} />
                 </div>
-                <h3 className="mt-5 text-lg font-semibold text-zinc-900">{t(f.titleKey)}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-zinc-600">{t(f.descKey)}</p>
+                <h3 className="mt-5 text-lg font-semibold text-zinc-900">
+                  {t(`features.${f.key}.title`)}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-zinc-600">
+                  {t(`features.${f.key}.desc`)}
+                </p>
               </div>
             );
           })}
